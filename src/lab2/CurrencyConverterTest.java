@@ -41,6 +41,15 @@ class CurrencyConverterTest {
     }
 	
 	@Test
+	public void testConvertNegativeAmount() {
+	    BigDecimal conversionRate = BigDecimal.valueOf(1.50);
+	    BigDecimal inputAmount = BigDecimal.valueOf(-20.00);
+	    BigDecimal expectedResult = BigDecimal.valueOf(-30.00).setScale(CurrencyConverter.DECIMAL_DIGITS);
+	    BigDecimal actualResult = converter.convert(inputAmount, conversionRate);
+	    assertEquals(expectedResult, actualResult);
+	}
+	
+	@Test
     public void testIsValidRate() {
 //      BigDecimal conversionRate = BigDecimal.valueOf(100000); //returns true
 //		BigDecimal conversionRate = BigDecimal.valueOf(100001); //returns false
