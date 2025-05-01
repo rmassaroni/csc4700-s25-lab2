@@ -31,15 +31,15 @@ class CurrencyConverterTest {
         assertEquals(expectedResult, actualResult); // order by convention
 	}
 	
-//	@Test
-//    public void testConvertRounding() {
-//        BigDecimal conversionRate = BigDecimal.valueOf(0.055);
-//        BigDecimal inputAmount = BigDecimal.valueOf(99.99);
-//        BigDecimal expectedResult = BigDecimal.valueOf(5.50).setScale(CurrencyConverter.DECIMAL_DIGITS);
-//        BigDecimal actualResult = converter.convert(inputAmount, conversionRate);
-//        assertEquals(expectedResult, actualResult);
-//    }
-//	
+	@Test
+    public void testConvertRounding() {
+        BigDecimal conversionRate = BigDecimal.valueOf(0.055);
+        BigDecimal inputAmount = BigDecimal.valueOf(99.99);
+        BigDecimal expectedResult = BigDecimal.valueOf(5.50).setScale(CurrencyConverter.DECIMAL_DIGITS);
+        BigDecimal actualResult = converter.convert(inputAmount, conversionRate);
+        assertEquals(expectedResult, actualResult);
+    }
+	
 	@Test
     public void testIsValidRate() {
 //      BigDecimal conversionRate = BigDecimal.valueOf(100000); //returns true
