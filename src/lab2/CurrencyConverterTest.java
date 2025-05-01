@@ -56,4 +56,10 @@ class CurrencyConverterTest {
         BigDecimal conversionRate = BigDecimal.valueOf(2.70);
         assertTrue(converter.isValidRate(conversionRate));
     }
+	
+	@Test
+    public void testIsValidNegativeRate() {
+		BigDecimal conversionRate = BigDecimal.valueOf(-1.50);
+		assertTrue(!converter.isValidRate(conversionRate));
+	}
 }
