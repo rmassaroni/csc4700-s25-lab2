@@ -2,6 +2,7 @@ package lab2;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Currency;
 
 public class CurrencyConverter {
 
@@ -18,5 +19,10 @@ public class CurrencyConverter {
 
     public boolean isValidRate(BigDecimal conversionRate) {
         return conversionRate.compareTo(BigDecimal.ZERO) > 0 && conversionRate.compareTo(BigDecimal.valueOf(100000.00)) <= 0;
+    }
+    
+    public Money moneyConvert(Money input, BigDecimal rate, Currency currency) {
+    	BigDecimal resultValue = input.getValue().multiply(rate).setScale(DECIMAL_DIGITS, RoundingMode.HALF_UP);
+        return new Money(resultValue, currency);
     }
 }

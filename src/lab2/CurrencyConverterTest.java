@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
+import java.util.Currency;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -61,5 +62,19 @@ class CurrencyConverterTest {
     public void testIsValidNegativeRate() {
 		BigDecimal conversionRate = BigDecimal.valueOf(-1.50);
 		assertTrue(!converter.isValidRate(conversionRate));
+	}
+	
+	@Test
+	public void testMoneyConvert() {
+	    Money m = new Money(BigDecimal.valueOf(100.00), Currency.getInstance("USD"));
+	    BigDecimal rate = BigDecimal.valueOf(0.85);
+	    Money expected = new Money(BigDecimal.valueOf(85.00), Currency.getInstance("EUR"));
+//	    System.out.println(expected.getValue());
+//	    System.out.println(expected.getCurrencyIdentifier());
+	    Money actual = converter.moneyConvert(m, rate, Currency.getInstance("EUR"));
+//	    System.out.println(actual.getValue());
+//	    System.out.println(actual.getCurrencyIdentifier());
+	    
+	    assertEquals(expected, actual);
 	}
 }
