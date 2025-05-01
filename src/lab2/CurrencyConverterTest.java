@@ -17,10 +17,10 @@ class CurrencyConverterTest {
         this.converter = new CurrencyConverter();
     }
 
-	//@Test
-	//void test() {
-	//	fail("Not yet implemented");
-	//}
+//	@Test
+//	void test() {
+//		fail("Not yet implemented");
+//	}
 	
 	@Test
 	void testConvert() {
@@ -29,9 +29,6 @@ class CurrencyConverterTest {
         BigDecimal expectedResult = BigDecimal.valueOf(270.00).setScale(CurrencyConverter.DECIMAL_DIGITS);
         BigDecimal actualResult = converter.convert(inputAmount, conversionRate);
         assertEquals(expectedResult, actualResult); // order by convention
-        
-		converter = new CurrencyConverter();
-		converter.convert(inputAmount, conversionRate);
 	}
 	
 //	@Test
@@ -43,9 +40,11 @@ class CurrencyConverterTest {
 //        assertEquals(expectedResult, actualResult);
 //    }
 //	
-//	@Test
-//    public void testIsValidRate() {
-//        BigDecimal conversionRate = BigDecimal.valueOf(2.70);
-//        assertTrue(converter.isValidRate(conversionRate));
-//    }
+	@Test
+    public void testIsValidRate() {
+//      BigDecimal conversionRate = BigDecimal.valueOf(100000); //returns true
+//		BigDecimal conversionRate = BigDecimal.valueOf(100001); //returns false
+        BigDecimal conversionRate = BigDecimal.valueOf(2.70);
+        assertTrue(converter.isValidRate(conversionRate));
+    }
 }

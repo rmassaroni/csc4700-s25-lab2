@@ -17,8 +17,6 @@ public class CurrencyConverter {
     }
 
     public boolean isValidRate(BigDecimal conversionRate) {
-        // TODO Auto-generated method stub
-        return false;
+        return conversionRate.compareTo(BigDecimal.ZERO) > 0 && conversionRate.compareTo(BigDecimal.valueOf(100000.00)) <= 0;
     }
-
 }
